@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% import "bootstrap/wtf.html" as wtf %} <!-- this helps to render web forms -->
+{% import 'macros.html' as macro%}
 
 {% block content %}
     <div class="container">
@@ -8,8 +9,8 @@
     <div class="row">
         <h1> PITCHES: </h1>
         <hr>
-        {% if pitch %}
-        {{macro.displayPitches(pitches)}}
+        {% if pitches %}
+            {{macro.displayPitch(pitches)}}
         {% endif %}
     </div>
 {% endblock %}

@@ -4,6 +4,7 @@ from wtforms.validators import Required #import required that will prevent submi
 
 
 class PitchForm(FlaskForm): #create a class that inherits from FlaskForm class
+    name = StringField('Authors Name', validators = [Required()])
     category = StringField('Pitch Category', validators=[Required()])
     pitch = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
