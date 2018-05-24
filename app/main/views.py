@@ -2,14 +2,14 @@ from . import main
 from flask import render_template, request, redirect, url_for
 from ..models import Pitch
 from .forms import PitchForm
-
+# Pitch = pitch.Pitch
 
 
 @main.route('/')
 def index():
     return render_template('index.html')
 
-@main.route('/')
+@main.route('/new/<usname>', methods = ['GET' ,'POST'])
 def create(usname):
 
     form = PitchForm()
@@ -22,4 +22,4 @@ def create(usname):
 
     pitch = Pitch.get_pitch(usname)
 
-    return render_template('new.html',pitch_form = form,usname = usname)
+    return render_template('new.html', pitch = pitch, pitch_form = form,usname = usname)
