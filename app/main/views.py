@@ -9,8 +9,9 @@ from .forms import PitchForm
 def index():
     return render_template('index.html')
 
-@main.route('/new/<usname>', methods = ['GET' ,'POST'])
-def create(usname):
+@main.route('/new-pitch/', methods = ['GET' ,'POST'])
+# @login_required
+def create():
 
     form = PitchForm()
     if form.validate_on_submit():
@@ -20,6 +21,6 @@ def create(usname):
         new_pitch = Pitch(name, category, pitch_data)
         new_pitch.save_pitch()
 
-    pitch = Pitch.get_pitch(usname)
+    pitch = Pitch.save_pitch()
 
-    return render_template('new.html', pitch = pitch, pitch_form = form,usname = usname)
+    return render_template('new.html', pitch = pitch, pitch_form = form)
