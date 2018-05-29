@@ -3,6 +3,7 @@ from flask import render_template, request, redirect, url_for
 from ..models import Pitch
 from .forms import PitchForm
 # Pitch = pitch.Pitch
+from flask_login import login_required
 
 
 @main.route('/')
@@ -10,7 +11,7 @@ def index():
     return render_template('index.html')
 
 @main.route('/new-pitch/', methods = ['GET' ,'POST'])
-# @login_required
+@login_required
 def create():
 
     pitch_form = PitchForm()
