@@ -19,7 +19,7 @@ def create_app(config_state):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-      from .auth import auth as auth_blueprint
+    from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate') #this registers the blueprint instance. url_prefix is an
     #argument that will add a prefix to all the routes registered with that blueprint
 
